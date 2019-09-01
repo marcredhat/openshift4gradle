@@ -14,8 +14,8 @@ spec:
       type: git
   steps:
   - name: build
-    image: maven:3.6.0-jdk-8-slim
+    image: gradle
     command:
-    - /usr/bin/mvn
+    - /usr/bin/gradle
     args:
-    - verify
+    - bootRun

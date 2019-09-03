@@ -14,7 +14,7 @@ spec:
       type: git
   steps:
   - name: build
-    image: gradle
+    image: gradle:5.4.1
     command:
     - /usr/bin/gradle 
     args:

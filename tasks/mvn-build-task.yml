@@ -16,7 +16,8 @@ spec:
   - name: build
     image: gradle:5.4.1
     command:
-    - /usr/bin/gradle 
+    #- /usr/bin/gradle 
+    - ./gradlew
     args:
     - bootRun 
     

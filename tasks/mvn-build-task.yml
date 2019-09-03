@@ -16,6 +16,22 @@ spec:
   - name: build
     image: gradle
     command:
-    - /usr/bin/gradle --refresh-dependencies
+    - /usr/bin/gradle 
     args:
-    - bootJar
+    - build --refresh-dependencies
+    - "&&"
+    - /usr/bin/gradle
+    
+    
+#https://github.com/jenkins-x/jx/issues/3767:
+#- name: copy
+#  image: busybox
+#  command: mkdir
+#  args:
+#  - -p
+#  - /workspace/go/src/github.com/jenkins-x/exposecontroller
+#  - "&&"
+#  - cp
+#  - -R
+#  - "./"
+

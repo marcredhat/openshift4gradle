@@ -16,6 +16,6 @@ spec:
   - name: build
     image: gradle
     command:
-    - /usr/bin/gradle
+    - /usr/bin/gradle --refresh-dependencies
     args:
     - bootJar

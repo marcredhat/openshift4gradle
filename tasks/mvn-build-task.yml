@@ -16,10 +16,9 @@ spec:
   - name: build
     image: gradle
     command:
-    - /usr/bin/gradle build --refresh-dependencies
+    - /usr/bin/gradle 
     args:
-    - "&&"
-    - /usr/bin/gradle bootJar
+    - bootRun 
     
     
 #https://github.com/jenkins-x/jx/issues/3767:

@@ -19,7 +19,7 @@ spec:
     #- /usr/bin/gradle 
     - ./gradlew
     args:
-    - bootRun 
+    - bootJar
     
     
 #https://github.com/jenkins-x/jx/issues/3767:

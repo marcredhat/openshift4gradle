@@ -27,4 +27,4 @@ spec:
     volumes:
     - name: my-cache
       persistentVolumeClaim:
-        claimName: my-volume-claim
+        claimName: marc2

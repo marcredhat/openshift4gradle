@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   steps:
-    - name: write something
+    - name: "write something"
       image: ubuntu
       command: ["bash", "-c"]
       args: ["echo 'foo' > /my-cache/bar"]

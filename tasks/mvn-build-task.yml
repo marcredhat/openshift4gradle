@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
   name: mvn-build
+  namespace: marc
 spec:
   inputs:
     resources:
@@ -29,8 +30,8 @@ spec:
 apiVersion: tekton.dev/v1alpha1
 kind: TaskRun
 metadata:
-  name: myTaskRun
-  namespace: default
+  name: marcTaskRun
+  namespace: marc
 spec:
   taskRef:
     name: mvn-build

@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   finalizers:
   - kubernetes.io/pvc-protection
-  name: marc
-  namespace: marc
+  name: marc2
+  namespace: marc2
 spec:
   accessModes:
   - ReadWriteMany

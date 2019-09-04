@@ -17,20 +17,20 @@ spec:
   - name: build
     image: gradle:5.4.1
     command:
-    #- /usr/bin/gradle 
+    #- /usr/bin/gradle
     - ./gradlew
     args:
     - bootRun
     volumeMounts:
         - name: marcvol
           mountPath: /workspace
-          
-          
+
+
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: TaskRun
 metadata:
-  name: marcTaskRun
+  name: marc
   namespace: marc
 spec:
   taskRef:
@@ -42,8 +42,8 @@ spec:
     - name: marcvol
       persistentVolumeClaim:
         claimName: marc
-    
-    
+
+
 #https://github.com/jenkins-x/jx/issues/3767:
 #- name: copy
 #  image: busybox
@@ -55,4 +55,3 @@ spec:
 #  - cp
 #  - -R
 #  - "./"
-

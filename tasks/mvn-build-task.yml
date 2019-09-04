@@ -21,8 +21,26 @@ spec:
     args:
     - bootRun
     volumeMounts:
-        - name: pv0014
+        - name: marcvol
           mountPath: /workspace
+          
+          
+---
+apiVersion: tekton.dev/v1alpha1
+kind: TaskRun
+metadata:
+  name: myTaskRun
+  namespace: default
+spec:
+  taskRef:
+    name: mvn-build
+  podTemplate:
+    securityContext:
+      runAsNonRoot: true
+    volumes:
+    - name: marcvol
+      persistentVolumeClaim:
+        claimName: marc
     
     
 #https://github.com/jenkins-x/jx/issues/3767:

@@ -1,57 +1,30 @@
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
-  name: mvn-build
-  namespace: marc
+  name: myTask
+  namespace: default
 spec:
-  inputs:
-    resources:
-    - name: source
-      targetPath: /
-      type: git
-  outputs:
-    resources:
-    - name: source
-      type: git
   steps:
-  - name: build
-    image: gradle:5.4.1
-    command:
-    #- /usr/bin/gradle
-    - ./gradlew
-    args:
-    - bootRun
-    volumeMounts:
-        - name: pv0030
-          mountPath: /workspace
-
-
+    - name: write something
+      image: ubuntu
+      command: ["bash", "-c"]
+      args: ["echo 'foo' > /my-cache/bar"]
+      volumeMounts:
+        - name: my-cache
+          mountPath: /my-cache
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: TaskRun
 metadata:
-  name: marc
-  namespace: marc
+  name: myTaskRun
+  namespace: default
 spec:
   taskRef:
-    name: mvn-build
+    name: myTask
   podTemplate:
     securityContext:
       runAsNonRoot: true
     volumes:
-    - name: pv0030
+    - name: my-cache
       persistentVolumeClaim:
-        claimName: marc
-
-
-#https://github.com/jenkins-x/jx/issues/3767:
-#- name: copy
-#  image: busybox
-#  command: mkdir
-#  args:
-#  - -p
-#  - /workspace/go/src/github.com/jenkins-x/exposecontroller
-#  - "&&"
-#  - cp
-#  - -R
-#  - "./"
+        claimName: my-volume-claim

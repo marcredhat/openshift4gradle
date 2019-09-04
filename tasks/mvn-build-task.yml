@@ -20,6 +20,9 @@ spec:
     - ./gradlew
     args:
     - bootRun
+    volumeMounts:
+        - name: pv0014
+          mountPath: /workspace
     
     
 #https://github.com/jenkins-x/jx/issues/3767:

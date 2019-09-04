@@ -22,7 +22,7 @@ spec:
     args:
     - bootRun
     volumeMounts:
-        - name: marcvol
+        - name: pv0030
           mountPath: /workspace
 
 

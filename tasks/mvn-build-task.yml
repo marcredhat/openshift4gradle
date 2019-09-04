@@ -39,7 +39,7 @@ spec:
     securityContext:
       runAsNonRoot: true
     volumes:
-    - name: marcvol
+    - name: pv0030
       persistentVolumeClaim:
         claimName: marc
 

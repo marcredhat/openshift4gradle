@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
   name: marc2
-  namespace: default
+  namespace: marc2
 spec:
   steps:
     - name: write 
@@ -17,7 +17,7 @@ apiVersion: tekton.dev/v1alpha1
 kind: TaskRun
 metadata:
   name: marc2
-  namespace: default
+  namespace: marc2
 spec:
   taskRef:
     name: marc2
